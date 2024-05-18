@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd-test-service
+  labels:
+    app: cicd-test 
+spec:
+  selector:
+    app: cicd-test
+
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+  type: LoadBalancer
