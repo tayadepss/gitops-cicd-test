@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cicd-test
-          image: tayadepss/cicd-test-pipeline:1.0.0-53
+          image: tayadepss/cicd-test-pipeline:latest
           resources:
             limits:
               memory: "256Mi"
