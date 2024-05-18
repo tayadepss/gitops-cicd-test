@@ -29,15 +29,17 @@ pipeline {
 
         stage("Push the changed deployment file to Git") {
             steps {
-                sh """
+
+        withCredentials([gitUsernamePassword(credentialsId: 'gitHub', gitToolName: 'Default')]) {
+            sh """
                    git config --global user.name "tayadepss"
                    git config --global user.email "tayadepss@gmail.com"
                    git add deployment.yaml
                    git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'gitHub', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/tayadepss/gitops-cicd-test main"
-                }
+        }
+
+                
             }
         }
       
